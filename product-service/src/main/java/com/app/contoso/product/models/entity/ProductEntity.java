@@ -1,6 +1,9 @@
 package com.app.contoso.product.models.entity;
 
 import com.app.contoso.product.models.enums.ProductType;
+import com.azure.spring.data.cosmos.core.mapping.Container;
+import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
+import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -9,18 +12,22 @@ import java.util.UUID;
  * @author t0k02w6 on 17/07/21
  * @project contoso-retail
  */
+@Container(containerName = "contoso-retail")
 public class ProductEntity extends AbstractAttributes{
-    private UUID id;
+    @Id
+    private String id;
     private String name;
     private String description;
+
+    @PartitionKey
     private ProductType productType;
     private BigDecimal price;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
