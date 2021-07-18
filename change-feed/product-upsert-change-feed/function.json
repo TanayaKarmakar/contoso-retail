@@ -1,0 +1,14 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "documents",
+      "direction": "in",
+      "leaseCollectionName": "contoso-retail-lease",
+      "connectionStringSetting": "contosoretailacct_DOCUMENTDB",
+      "databaseName": "contoso-retail-db",
+      "collectionName": "contoso-retail",
+      "createLeaseCollectionIfNotExists": true
+    }
+  ]
+}
