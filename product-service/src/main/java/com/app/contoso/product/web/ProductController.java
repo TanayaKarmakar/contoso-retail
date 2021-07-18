@@ -29,5 +29,15 @@ public class ProductController {
         return ResponseEntity.ok(productDTO);
     }
 
+    @DeleteMapping("/{id}/types/{type}")
+    public ResponseEntity<String> deleteProduct(@PathVariable String id, @PathVariable ProductType type) {
+        productService.deleteProduct(id, type);
+        return ResponseEntity.ok("Deleted");
+    }
 
+    @PutMapping
+    public ResponseEntity<ProductDTO> updateProduct(@RequestBody ProductDTO productDTO) {
+        ProductDTO updatedProductDTO = productService.updateProduct(productDTO);
+        return ResponseEntity.ok(updatedProductDTO);
+    }
 }

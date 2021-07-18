@@ -8,9 +8,9 @@ import java.time.ZonedDateTime;
  */
 public class AbstractAttributes {
     private String createdBy;
-    private ZonedDateTime createdTs;
+    private String createdTs;
     private String lastUpdatedBy;
-    private ZonedDateTime lastUpdatedTs;
+    private String lastUpdatedTs;
 
     public String getCreatedBy() {
         return createdBy;
@@ -18,14 +18,6 @@ public class AbstractAttributes {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
-    }
-
-    public ZonedDateTime getCreatedTs() {
-        return createdTs;
-    }
-
-    public void setCreatedTs(ZonedDateTime createdTs) {
-        this.createdTs = createdTs;
     }
 
     public String getLastUpdatedBy() {
@@ -36,11 +28,19 @@ public class AbstractAttributes {
         this.lastUpdatedBy = lastUpdatedBy;
     }
 
-    public ZonedDateTime getLastUpdatedTs() {
+    public String getCreatedTs() {
+        return createdTs;
+    }
+
+    public void setCreatedTs(String createdTs) {
+        this.createdTs = createdTs;
+    }
+
+    public String getLastUpdatedTs() {
         return lastUpdatedTs;
     }
 
-    public void setLastUpdatedTs(ZonedDateTime lastUpdatedTs) {
+    public void setLastUpdatedTs(String lastUpdatedTs) {
         this.lastUpdatedTs = lastUpdatedTs;
     }
 }

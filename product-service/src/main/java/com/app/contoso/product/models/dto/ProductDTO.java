@@ -9,7 +9,7 @@ import java.util.UUID;
  * @author t0k02w6 on 17/07/21
  * @project contoso-retail
  */
-public class ProductDTO {
+public class ProductDTO extends AbstractDTO {
     private UUID id;
     private String name;
     private String description;

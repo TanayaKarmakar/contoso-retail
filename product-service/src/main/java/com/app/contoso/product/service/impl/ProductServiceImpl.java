@@ -9,6 +9,7 @@ import com.app.contoso.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,17 +39,21 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO addProduct(ProductDTO productDTO) {
         productDTO.setId(UUID.randomUUID());
+        productDTO.setCreatedTs(ZonedDateTime.now());
         return saveProduct(productDTO);
     }
 
     @Override
     public ProductDTO updateProduct(ProductDTO productDTO) {
-       return saveProduct(productDTO);
+        ProductEntity productEntity = productRepository.fetchProductByIdAndType(productDTO.getId().toString(), productDTO.getProductType()).get(0);
+        productDTO.setCreatedTs(ZonedDateTime.parse(productEntity.getCreatedTs()));
+        return saveProduct(productDTO);
     }
 
     @Override
-    public ProductDTO deleteProduct(UUID productId) {
-        return null;
+    public void deleteProduct(String productId, ProductType productType) {
+        ProductEntity productEntity = productRepository.fetchProductByIdAndType(productId, productType).get(0);
+        productRepository.delete(productEntity);
     }
 
     private ProductDTO saveProduct(ProductDTO productDTO) {
