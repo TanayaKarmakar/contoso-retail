@@ -1,6 +1,6 @@
 package com.app.contoso.product.models.mapper;
 
-import com.app.contoso.product.models.constants.ContosoRetailConstants;
+import com.app.contoso.common.constants.ContosoRetailConstants;
 import com.app.contoso.product.models.dto.ProductDTO;
 import com.app.contoso.product.models.entity.ProductEntity;
 import org.mapstruct.Mapper;
