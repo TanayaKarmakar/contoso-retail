@@ -1,5 +1,8 @@
 package com.app.contoso.audit.models.entity;
 
+import com.azure.spring.data.cosmos.core.mapping.Container;
+import org.springframework.data.annotation.Id;
+
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
@@ -7,28 +10,30 @@ import java.util.UUID;
  * @author t0k02w6 on 17/07/21
  * @project contoso-retail
  */
+@Container(containerName = "contoso-audit")
 public class AuditEntity {
-    private UUID id;
-    private UUID entityId; //partitionKey
+    @Id
+    private String id;
+    private String entityId; //partitionKey
     private String entityDetail;
     private String createdBy;
     private ZonedDateTime createdTs;
     private String updatedBy;
     private ZonedDateTime lastUpdatedTs;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public UUID getEntityId() {
+    public String getEntityId() {
         return entityId;
     }
 
-    public void setEntityId(UUID entityId) {
+    public void setEntityId(String entityId) {
         this.entityId = entityId;
     }
 

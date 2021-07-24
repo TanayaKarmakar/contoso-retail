@@ -8,27 +8,27 @@ import java.util.UUID;
  * @project contoso-retail
  */
 public class AuditDTO {
-    private UUID id;
-    private UUID entityId;
+    private String id;
+    private String entityId;
     private String entityDetail;
     private String createdBy;
     private ZonedDateTime createdTs;
     private String updatedBy;
     private ZonedDateTime lastUpdatedTs;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public UUID getEntityId() {
+    public String getEntityId() {
         return entityId;
     }
 
-    public void setEntityId(UUID entityId) {
+    public void setEntityId(String entityId) {
         this.entityId = entityId;
     }
 
